@@ -1,0 +1,136 @@
+{
+  "products": [
+    {
+      "id": 101,
+      "title": "Golden Horizon",
+      "category": "Paintings",
+      "artistId": 2,
+      "artistName": "Elena Rivera",
+      "price": 4500,
+      "discount": 15,
+      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=800&fit=crop",
+      "description": "A stunning abstract piece capturing the warmth of Mediterranean sunsets"
+    },
+    {
+      "id": 102,
+      "title": "Urban Dreams",
+      "category": "Paintings",
+      "artistId": 2,
+      "artistName": "Elena Rivera",
+      "price": 3200,
+      "discount": 0,
+      "image": "https://images.unsplash.com/photo-1549887534-1541e9326642?w=600&h=800&fit=crop",
+      "description": "Contemporary cityscape exploring modern life and isolation"
+    },
+    {
+      "id": 103,
+      "title": "Ethereal Portrait",
+      "category": "Sketches",
+      "artistId": 3,
+      "artistName": "Marcus Chen",
+      "price": 1800,
+      "discount": 10,
+      "image": "https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&h=800&fit=crop",
+      "description": "Delicate pencil work capturing human emotion"
+    },
+    {
+      "id": 104,
+      "title": "Digital Cosmos",
+      "category": "Digital Art",
+      "artistId": 3,
+      "artistName": "Marcus Chen",
+      "price": 2500,
+      "discount": 20,
+      "image": "https://images.unsplash.com/photo-1634017839464-5c339bbe3c35?w=600&h=800&fit=crop",
+      "description": "Vibrant digital exploration of space and consciousness"
+    },
+    {
+      "id": 105,
+      "title": "Nature's Whisper",
+      "category": "Sculptures",
+      "artistId": 4,
+      "artistName": "Sofia Andersson",
+      "price": 8500,
+      "discount": 0,
+      "image": "https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=600&h=800&fit=crop",
+      "description": "Organic sculpture crafted from reclaimed driftwood"
+    },
+    {
+      "id": 106,
+      "title": "Midnight Blues",
+      "category": "Paintings",
+      "artistId": 2,
+      "artistName": "Elena Rivera",
+      "price": 5200,
+      "discount": 10,
+      "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=800&fit=crop",
+      "description": "Deep exploration of night and solitude through bold strokes"
+    },
+    {
+      "id": 107,
+      "title": "Neon Dystopia",
+      "category": "Digital Art",
+      "artistId": 3,
+      "artistName": "Marcus Chen",
+      "price": 1950,
+      "discount": 0,
+      "image": "https://images.unsplash.com/photo-1563089145-599997674d42?w=600&h=800&fit=crop",
+      "description": "Cyberpunk-inspired vision of future cities"
+    },
+    {
+      "id": 108,
+      "title": "Flowing Form",
+      "category": "Sculptures",
+      "artistId": 4,
+      "artistName": "Sofia Andersson",
+      "price": 12000,
+      "discount": 5,
+      "image": "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=600&h=800&fit=crop",
+      "description": "Bronze sculpture inspired by ocean currents"
+    },
+    {
+      "id": 109,
+      "title": "Life Study I",
+      "category": "Sketches",
+      "artistId": 3,
+      "artistName": "Marcus Chen",
+      "price": 950,
+      "discount": 0,
+      "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=800&fit=crop",
+      "description": "Classic figure drawing study in charcoal"
+    },
+    {
+      "id": 110,
+      "title": "Abstract Serenity",
+      "category": "Paintings",
+      "artistId": 2,
+      "artistName": "Elena Rivera",
+      "price": 3800,
+      "discount": 0,
+      "image": "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=600&h=800&fit=crop",
+      "description": "Calming abstract composition in soft pastels"
+    },
+    {
+      "id": 111,
+      "title": "Digital Dreams",
+      "category": "Digital Art",
+      "artistId": 3,
+      "artistName": "Marcus Chen",
+      "price": 2200,
+      "discount": 15,
+      "image": "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&h=800&fit=crop",
+      "description": "Surreal digital landscape blending reality and fantasy"
+    },
+    {
+      "id": 112,
+      "title": "Botanical Study",
+      "category": "Sketches",
+      "artistId": 4,
+      "artistName": "Sofia Andersson",
+      "price": 1200,
+      "discount": 0,
+      "image": "https://images.unsplash.com/photo-1579541814924-49fef17c5be5?w=600&h=800&fit=crop",
+      "description": "Detailed botanical illustration in ink"
+    }
+  ]
+}

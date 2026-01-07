@@ -1,0 +1,9 @@
+{
+  "users": [
+    { "id": 1, "name": "Gallery Admin", "email": "admin@artgallery.com", "password": "admin123", "role": "admin", "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" },
+    { "id": 2, "name": "Elena Rivera", "email": "elena@artgallery.com", "password": "artist123", "role": "artist", "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop", "bio": "Contemporary abstract artist based in Barcelona" },
+    { "id": 3, "name": "Marcus Chen", "email": "marcus@artgallery.com", "password": "artist123", "role": "artist", "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop", "bio": "Digital artist exploring the intersection of technology and emotion" },
+    { "id": 4, "name": "Sofia Andersson", "email": "sofia@artgallery.com", "password": "artist123", "role": "artist", "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop", "bio": "Sculptor working with sustainable materials" },
+    { "id": 5, "name": "Art Collector", "email": "user@artgallery.com", "password": "user123", "role": "user", "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" }
+  ]
+}

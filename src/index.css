@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 20 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 10% 10%;
+
+    --primary: 20 10% 15%;
+    --primary-foreground: 40 33% 98%;
+
+    --secondary: 35 25% 93%;
+    --secondary-foreground: 20 10% 15%;
+
+    --muted: 35 20% 95%;
+    --muted-foreground: 20 10% 45%;
+
+    --accent: 38 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 20% 88%;
+    --input: 35 20% 88%;
+    --ring: 38 70% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom gallery tokens */
+    --gallery-gold: 38 70% 50%;
+    --gallery-cream: 40 33% 98%;
+    --gallery-charcoal: 20 10% 15%;
+    --gallery-warm-gray: 30 10% 60%;
+    --gallery-success: 142 70% 45%;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --shadow-card: 0 4px 20px -4px hsl(20 10% 10% / 0.08);
+    --shadow-card-hover: 0 12px 32px -8px hsl(20 10% 10% / 0.15);
+    --shadow-elevated: 0 20px 50px -12px hsl(20 10% 10% / 0.2);
+  }
+
+  .dark {
+    --background: 20 10% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 20 10% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 20 10% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 40 20% 95%;
+    --primary-foreground: 20 10% 8%;
+
+    --secondary: 20 10% 18%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 20 10% 18%;
+    --muted-foreground: 30 10% 60%;
+
+    --accent: 38 70% 55%;
+    --accent-foreground: 20 10% 8%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 10% 22%;
+    --input: 20 10% 22%;
+    --ring: 38 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gallery-gradient {
+    background: linear-gradient(135deg, hsl(var(--gallery-cream)) 0%, hsl(35 30% 95%) 100%);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(38 70% 55%) 0%, hsl(32 80% 45%) 100%);
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+}

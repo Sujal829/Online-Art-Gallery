@@ -1,0 +1,25 @@
+{
+  "orders": [
+    {
+      "orderId": "ORD001",
+      "userId": 5,
+      "items": [
+        { "productId": 101, "quantity": 1, "price": 3825 }
+      ],
+      "totalAmount": 3825,
+      "status": "Completed",
+      "date": "2024-01-15"
+    },
+    {
+      "orderId": "ORD002",
+      "userId": 5,
+      "items": [
+        { "productId": 104, "quantity": 1, "price": 2000 },
+        { "productId": 109, "quantity": 1, "price": 950 }
+      ],
+      "totalAmount": 2950,
+      "status": "Pending",
+      "date": "2024-01-20"
+    }
+  ]
+}
