@@ -1,10 +1,10 @@
 import * as React from "react";
-import {    } from "@radix-ui/react-dialog";
-import {  Command  } from "cmdk";
-import {  Search  } from "lucide-react";
+import { } from "@radix-ui/react-dialog";
+import { Command as CommandPrimitive } from "cmdk";
+import { Search } from "lucide-react";
 
-import {  cn  } from "@/lib/utils";
-import {  Dialog, DialogContent  } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const Command = React.forwardRef(({ className, ...props }, ref) => (
   <CommandPrimitive
@@ -98,7 +98,8 @@ const CommandShortcut = ({ className, ...props }) => {
 };
 CommandShortcut.displayName = "CommandShortcut";
 
-export { Command,
+export {
+  Command,
   CommandDialog,
   CommandInput,
   CommandList,
@@ -106,4 +107,5 @@ export { Command,
   CommandGroup,
   CommandItem,
   CommandShortcut,
-  CommandSeparator };
+  CommandSeparator
+};

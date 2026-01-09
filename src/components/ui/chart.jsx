@@ -1,21 +1,12 @@
 import * as React from "react";
-import * from "recharts";
+import * as RechartsPrimitive from "recharts";
 
-import {  cn  } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" };
 
-export type ChartConfig = {
-  [k in string]: {
-    label?: React.ReactNode;
-    icon?: React.ComponentType;
-  } & ({ color?; theme?: never } | { color?; theme: Record<keyof typeof THEMES, string> });
-};
-
-};
-
-const ChartContext = React.createContext<ChartContextProps | null>(null);
+const ChartContext = React.createContext(null);
 
 function useChart() {
   const context = React.useContext(ChartContext);
@@ -50,7 +41,7 @@ const ChartContainer = React.forwardRef(({ id, className, children, config, ...p
 });
 ChartContainer.displayName = "Chart";
 
-const ChartStyle = ({ id, config }: { id; config: ChartConfig }) => {
+const ChartStyle = ({ id, config }) => {
   const colorConfig = Object.entries(config).filter(([_, config]) => config.theme || config.color);
 
   if (!colorConfig.length) {
@@ -65,11 +56,11 @@ const ChartStyle = ({ id, config }: { id; config: ChartConfig }) => {
             ([theme, prefix]) => `
 ${prefix} [data-chart=${id}] {
 ${colorConfig
-  .map(([key, itemConfig]) => {
-    const color = itemConfig.theme?.[theme typeof itemConfig.theme] || itemConfig.color;
-    return color ? `  --color-${key}: ${color};` ;
-  })
-  .join("\n")}
+                .map(([key, itemConfig]) => {
+                  const color = itemConfig.theme?.[theme] || itemConfig.color;
+                  return color ? `  --color-${key}: ${color};` : null;
+                })
+                .join("\n")}
 }
 `,
           )
@@ -112,7 +103,7 @@ const ChartTooltipContent = React.forwardRef(
       const itemConfig = getPayloadConfigFromPayload(config, item, key);
       const value =
         !labelKey && typeof label === "string"
-          ? config[label typeof config]?.label || label
+          ? config[label]?.label || label
           : itemConfig?.label;
 
       if (labelFormatter) {
@@ -165,15 +156,15 @@ const ChartTooltipContent = React.forwardRef(
                       !hideIndicator && (
                         <div
                           className={cn("shrink-0 rounded-[2px] border-[--color-border] bg-[--color-bg]", {
-                            "h-2.5 w-2.5"=== "dot",
-                            "w-1"=== "line",
-                            "w-0 border-[1.5px] border-dashed bg-transparent"=== "dashed",
+                            "h-2.5 w-2.5": indicator === "dot",
+                            "w-1": indicator === "line",
+                            "w-0 border-[1.5px] border-dashed bg-transparent": indicator === "dashed",
                             "my-0.5": nestLabel && indicator === "dashed",
                           })}
                           style={
                             {
-                              "--color-bg",
-                              "--color-border",
+                              "--color-bg": indicatorColor,
+                              "--color-border": indicatorColor,
                             }
                           }
                         />
@@ -258,21 +249,21 @@ function getPayloadConfigFromPayload(config, payload, key) {
   const payloadPayload =
     "payload" in payload && typeof payload.payload === "object" && payload.payload !== null
       ? payload.payload
-      ;
+      : undefined;
 
-  let configLabelKey= key;
+  let configLabelKey = key;
 
-  if (key in payload && typeof payload[key typeof payload] === "string") {
-    configLabelKey = payload[key typeof payload];
+  if (key in payload && typeof payload[key] === "string") {
+    configLabelKey = payload[key];
   } else if (
     payloadPayload &&
     key in payloadPayload &&
-    typeof payloadPayload[key typeof payloadPayload] === "string"
+    typeof payloadPayload[key] === "string"
   ) {
-    configLabelKey = payloadPayload[key typeof payloadPayload];
+    configLabelKey = payloadPayload[key];
   }
 
-  return configLabelKey in config ? config[configLabelKey] : config[key typeof config];
+  return configLabelKey in config ? config[configLabelKey] : config[key];
 }
 
 export { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, ChartStyle };

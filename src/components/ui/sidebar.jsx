@@ -1,16 +1,16 @@
 import * as React from "react";
-import {  Slot  } from "@radix-ui/react-slot";
-import {  VariantProps, cva  } from "class-variance-authority";
-import {  PanelLeft  } from "lucide-react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva } from "class-variance-authority";
+import { PanelLeft } from "lucide-react";
 
-import {  useIsMobile  } from "@/hooks/use-mobile";
-import {  cn  } from "@/lib/utils";
-import {  Button  } from "@/components/ui/button";
-import {  Input  } from "@/components/ui/input";
-import {  Separator  } from "@/components/ui/separator";
-import {  Sheet, SheetContent  } from "@/components/ui/sheet";
-import {  Skeleton  } from "@/components/ui/skeleton";
-import {  Tooltip, TooltipContent, TooltipProvider, TooltipTrigger  } from "@/components/ui/tooltip";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -19,15 +19,7 @@ const SIDEBAR_WIDTH_MOBILE = "18rem";
 const SIDEBAR_WIDTH_ICON = "3rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
-  open;
-  setOpen: (open) => void;
-  openMobile;
-  setOpenMobile: (open) => void;
-  isMobile;
-  toggleSidebar: () => void;
-};
-
-const SidebarContext = React.createContext<SidebarContext | null>(null);
+const SidebarContext = React.createContext(null);
 
 function useSidebar() {
   const context = React.useContext(SidebarContext);
@@ -38,7 +30,7 @@ function useSidebar() {
   return context;
 }
 
-const SidebarProvider = React.forwardRef(({ defaultOpen = true, open, onOpenChange, className, style, children, ...props }, ref) => {
+const SidebarProvider = React.forwardRef(({ defaultOpen = true, open: openProp, onOpenChange: setOpenProp, className, style, children, ...props }, ref) => {
   const isMobile = useIsMobile();
   const [openMobile, setOpenMobile] = React.useState(false);
 
@@ -47,8 +39,8 @@ const SidebarProvider = React.forwardRef(({ defaultOpen = true, open, onOpenChan
   const [_open, _setOpen] = React.useState(defaultOpen);
   const open = openProp ?? _open;
   const setOpen = React.useCallback(
-    (value: boolean | ((value) => boolean)) => {
-      const openState = typeof value === "function" ? value(open) ;
+    (value) => {
+      const openState = typeof value === "function" ? value(open) : value;
       if (setOpenProp) {
         setOpenProp(openState);
       } else {
@@ -83,7 +75,7 @@ const SidebarProvider = React.forwardRef(({ defaultOpen = true, open, onOpenChan
   // This makes it easier to style the sidebar with Tailwind classes.
   const state = open ? "expanded" : "collapsed";
 
-  const contextValue = React.useMemo<SidebarContext>(
+  const contextValue = React.useMemo(
     () => ({
       state,
       open,
@@ -102,8 +94,8 @@ const SidebarProvider = React.forwardRef(({ defaultOpen = true, open, onOpenChan
         <div
           style={
             {
-              "--sidebar-width",
-              "--sidebar-width-icon",
+              "--sidebar-width": SIDEBAR_WIDTH,
+              "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
               ...style,
             }
           }
@@ -143,7 +135,7 @@ const Sidebar = React.forwardRef(({ side = "left", variant = "sidebar", collapsi
           className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
           style={
             {
-              "--sidebar-width",
+              "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
             }
           }
           side={side}
@@ -438,7 +430,7 @@ const SidebarMenuButton = React.forwardRef(({ asChild = false, isActive = false,
 
   if (typeof tooltip === "string") {
     tooltip = {
-      children,
+      children: tooltip,
     };
   }
 
@@ -467,7 +459,7 @@ const SidebarMenuAction = React.forwardRef(({ className, asChild = false, showOn
         "peer-data-[size=lg]/menu-button:top-2.5",
         "group-data-[collapsible=icon]:hidden",
         showOnHover &&
-          "group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 peer-data-[active=true]/menu-button:text-sidebar-accent-foreground md:opacity-0",
+        "group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 peer-data-[active=true]/menu-button:text-sidebar-accent-foreground md:opacity-0",
         className,
       )}
       {...props}
@@ -515,7 +507,7 @@ const SidebarMenuSkeleton = React.forwardRef(({ className, showIcon = false, ...
         data-sidebar="menu-skeleton-text"
         style={
           {
-            "--skeleton-width",
+            "--skeleton-width": width,
           }
         }
       />
@@ -568,7 +560,8 @@ const SidebarMenuSubButton = React.forwardRef(({ asChild = false, size = "md", i
 });
 SidebarMenuSubButton.displayName = "SidebarMenuSubButton";
 
-export { Sidebar,
+export {
+  Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
@@ -591,4 +584,5 @@ export { Sidebar,
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
-  useSidebar };
+  useSidebar
+};
